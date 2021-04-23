@@ -35,6 +35,8 @@ contract EHCStaking is Ownable, ReentrancyGuard {
     uint256 private _currentETHRound = 1;
     /// @dev record unclaimed ETH
     uint256 private _ethersUnclaimed;
+    /// @dev record total received ETH;
+    uint256 public accEtherRewards;
 
     constructor(IERC20 ethContract, IBIMToken bimContract, IEHCToken ehcToken, IBIMVesting bimVesting) 
         public {
@@ -203,6 +205,9 @@ contract EHCStaking is Ownable, ReentrancyGuard {
         
         // update unclaimed ethers
         _ethersUnclaimed += balanceDiff;
+        
+        // record total ethers received
+        accEtherRewards += balanceDiff;
     }
     
     
