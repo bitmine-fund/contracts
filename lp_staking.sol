@@ -13,8 +13,6 @@ contract LPStaking is Ownable, ReentrancyGuard {
     using SafeERC20 for IERC20;
 
     uint256 constant DAY = 86400;
-    uint256 constant WEEK = DAY * 7;
-    uint256 constant MONTH = DAY * 30;
     
     IBIMToken public BIMContract;
     IERC20 public LPToken;
@@ -97,8 +95,6 @@ contract LPStaking is Ownable, ReentrancyGuard {
     uint256 private _lastBIMRewardBlock = block.number;
     // @dev BIM rewards per block
     uint256 public BIMBlockReward = 0;
-    /// @dev last BIM balance
-    uint256 private _lastBIMBalance;
     
     uint256 internal constant SHARE_MULTIPLIER = 1e18; // share multiplier to avert division underflow
 
