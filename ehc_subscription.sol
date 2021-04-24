@@ -113,13 +113,13 @@ contract EHCSubscription is Ownable {
         if (round.balances[msg.sender] == 0) {
             round.numSubscribed++;
             accSubscribed++;
-            accUSDTSubscribed += amountUSDT;
         }
         
         // transfer USDT to this contract and finish bookkeeping.
         USDTContract.safeTransferFrom(msg.sender, address(this), amountUSDT);
         round.balances[msg.sender] += amountUSDT;
         round.totalUSDTS += amountUSDT;
+        accUSDTSubscribed += amountUSDT;
         
         RoundIndex storage idx = _roundIndices[msg.sender];
         if (idx.lastest != currentRound) {
