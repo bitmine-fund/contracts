@@ -11,7 +11,7 @@ contract BIMLockup is Ownable {
     using SafeMath for uint;
     using SafeERC20 for IBIMToken;
 
-    uint256 internal constant DAY = 10; // @dev MODIFY TO 86400 BEFORE PUBLIC RELEASE
+    uint256 internal constant DAY = 300; // @dev MODIFY TO 86400 BEFORE PUBLIC RELEASE
     uint256 internal constant WEEK = DAY * 7;
     uint256 internal constant MONTH = DAY * 30;
     
